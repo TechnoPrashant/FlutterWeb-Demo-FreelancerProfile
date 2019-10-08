@@ -43,9 +43,9 @@ class StringUtils {
 
   //Link
   String linkGithub = 'https://github.com/Prashant09mca';
-  String linkLinkedIn =
-      'https://www.linkedin.com/in/prashant-padmani-14b55649/';
+  String linkLinkedIn = 'https://www.linkedin.com/in/prashant-padmani-14b55649';
   String linkFacebook = 'https://www.facebook.com/technoprashant1336/';
+  String linkTwitter = 'https://twitter.com/PadmaniPrashant';
 
   //Image
   String imgIcon = 'images/icon.png';

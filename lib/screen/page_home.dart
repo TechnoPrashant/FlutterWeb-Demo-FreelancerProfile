@@ -72,6 +72,16 @@ class PageHome extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
+              ConstUtils().widgetUtils.spaceHorizontal(40),
+              InkWell(
+                onTap: () {
+                  _launchURL(ConstUtils().stringUtils.linkTwitter);
+                },
+                child: Icon(
+                  FontAwesomeIcons.twitterSquare,
+                  color: Colors.white,
+                ),
+              ),
             ],
           )
         ],

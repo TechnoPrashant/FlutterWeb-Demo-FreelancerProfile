@@ -178,9 +178,10 @@ class WidgetUtils {
           child: Center(
             child: Text(
               buttonName,
+              textAlign: TextAlign.center,
               style: TextStyle(
                   color: ConstUtils().colorUtils.blackCircal,
-                  fontSize: ResponsiveLayout.isSmallScreen(context) ? 20 : 14,
+                  fontSize: ResponsiveLayout.isSmallScreen(context) ? 14 : 20,
                   fontFamily: ConstUtils().stringUtils.fontMenu),
             ),
           )),
