@@ -1,11 +1,11 @@
+import 'package:FlutterWeb_Demo_FreelancerProfile/screen/page_about.dart';
+import 'package:FlutterWeb_Demo_FreelancerProfile/screen/page_contact.dart';
+import 'package:FlutterWeb_Demo_FreelancerProfile/screen/page_home.dart';
+import 'package:FlutterWeb_Demo_FreelancerProfile/screen/page_service.dart';
+import 'package:FlutterWeb_Demo_FreelancerProfile/utils/ResponsiveLayout.dart';
+import 'package:FlutterWeb_Demo_FreelancerProfile/utils/const_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:web_tesing_demo/screen/page_about.dart';
-import 'package:web_tesing_demo/screen/page_contact.dart';
-import 'package:web_tesing_demo/screen/page_home.dart';
-import 'package:web_tesing_demo/screen/page_service.dart';
-import 'package:web_tesing_demo/utils/ResponsiveLayout.dart';
-import 'package:web_tesing_demo/utils/const_utils.dart';
 
 double menuSpacing = 80;
 double menuSpacingSmall = 20;

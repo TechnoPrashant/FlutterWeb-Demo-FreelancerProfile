@@ -1,7 +1,7 @@
+import 'package:FlutterWeb_Demo_FreelancerProfile/utils/ResponsiveLayout.dart';
+import 'package:FlutterWeb_Demo_FreelancerProfile/utils/const_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:web_tesing_demo/utils/ResponsiveLayout.dart';
-import 'package:web_tesing_demo/utils/const_utils.dart';
 
 class PageService extends StatelessWidget {
   @override
