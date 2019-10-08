@@ -13,10 +13,10 @@
 <img src="https://github.com/Prashant09mca/FlutterWeb-Demo-FreelancerProfile/blob/master/demo.gif"/>
 
 # Screenshots 
-<h3>Desktop Viwe</h3>
+<h3>Desktop View</h3>
 <img src="https://github.com/Prashant09mca/FlutterWeb-Demo-FreelancerProfile/blob/master/web.png"/>
 
-<h3>Mobile Viwe</h3>
+<h3>Mobile View</h3>
 <img src="https://github.com/Prashant09mca/FlutterWeb-Demo-FreelancerProfile/blob/master/mobile.png"/>
 
 <h3> ⭐ Star the repo if you like what you see. ⭐</h3>
