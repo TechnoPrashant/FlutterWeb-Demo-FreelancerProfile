@@ -25,12 +25,15 @@ class WidgetUtils {
   }
 
   Widget menuText(String name, Color color, BuildContext context) {
-    return Text(
-      name,
-      style: TextStyle(
-          color: color,
-          fontSize: ResponsiveLayout.isSmallScreen(context) ? 14 : 18,
-          fontFamily: ConstUtils().stringUtils.fontMenu),
+    return Container(
+      padding: EdgeInsets.only(left: 20),
+      child: Text(
+        name,
+        style: TextStyle(
+            color: color,
+            fontSize: ResponsiveLayout.isSmallScreen(context) ? 18 : 20,
+            fontFamily: ConstUtils().stringUtils.fontMenu),
+      ),
     );
   }
 
@@ -185,6 +188,21 @@ class WidgetUtils {
                   fontFamily: ConstUtils().stringUtils.fontMenu),
             ),
           )),
+    );
+  }
+
+  Widget lineHorizontal({double height, Color color}) {
+    return Container(
+      height: height,
+      color: color,
+    );
+  }
+
+  Widget lineVertical({double height, Color color, double width}) {
+    return Container(
+      height: height,
+      color: color,
+      width: width,
     );
   }
 }

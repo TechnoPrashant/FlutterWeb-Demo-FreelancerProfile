@@ -82,6 +82,16 @@ class PageHome extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
+              ConstUtils().widgetUtils.spaceHorizontal(40),
+              InkWell(
+                onTap: () {
+                  _launchURL("contact@technoprashant.me");
+                },
+                child: Icon(
+                  Icons.mail,
+                  color: Colors.white,
+                ),
+              ),
             ],
           )
         ],

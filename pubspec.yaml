@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   font_awesome_flutter: ^8.5.0
   flutter_rounded_progress_bar:
+  flutter_email_sender: ^2.2.1
 
 dev_dependencies:
   flutter_test:

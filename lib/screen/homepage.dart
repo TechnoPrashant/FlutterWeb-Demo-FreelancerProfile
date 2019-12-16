@@ -4,37 +4,86 @@ import 'package:FlutterWeb_Demo_FreelancerProfile/screen/page_home.dart';
 import 'package:FlutterWeb_Demo_FreelancerProfile/screen/page_service.dart';
 import 'package:FlutterWeb_Demo_FreelancerProfile/utils/ResponsiveLayout.dart';
 import 'package:FlutterWeb_Demo_FreelancerProfile/utils/const_utils.dart';
+import 'package:FlutterWeb_Demo_FreelancerProfile/utils/widget_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-double menuSpacing = 80;
-double menuSpacingSmall = 20;
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
 
-class HomePage extends StatelessWidget {
+class _HomePageState extends State<HomePage> {
+  List<String> menuList = ["HOME", "ABOUT", "SERVICE", "CONTACT"];
+  int clickPosition = 0;
+  Widget widgetbody = PageHome();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ConstUtils().colorUtils.blackBG_A,
-      body: HomePageScreen(),
+      appBar: PreferredSize(
+          preferredSize: ResponsiveLayout.isSmallScreen(context)
+              ? Size.fromHeight(50.0)
+              : Size.fromHeight(0.0),
+          // here the desired height
+          child: AppBar(
+            centerTitle: true,
+            elevation: 0.0,
+            backgroundColor: ConstUtils().colorUtils.blackBG_A,
+            iconTheme: new IconThemeData(color: Colors.white),
+
+            // ...
+          )),
+      drawer: ResponsiveLayout.isSmallScreen(context)
+          ? Drawer(
+              child: Container(
+                  color: ConstUtils().colorUtils.blackBG_A,
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only(top: 30),
+                        child: ConstUtils().widgetUtils.headingText(
+                            name: ConstUtils().stringUtils.fullname,
+                            color: Colors.yellow,
+                            context: context,
+                            textSizeLarge: 32,
+                            textSizeMedium: 22,
+                            textSizeSmall: 18),
+                      ),
+                      Container(
+                          margin: EdgeInsets.only(
+                              top: 20, bottom: 20, left: 10, right: 10),
+                          child: WidgetUtils().lineHorizontal(
+                              color: Colors.black45, height: 1)),
+                      ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: menuList.length,
+                          scrollDirection: Axis.vertical,
+                          itemBuilder: (BuildContext context, int index) {
+                            return InkWell(
+                              splashColor: Colors.yellow,
+                              child: Padding(
+                                padding: const EdgeInsets.all(14),
+                                child: ConstUtils().widgetUtils.menuText(
+                                    menuList[index], Colors.white, context),
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  clickPosition = index;
+                                  Navigator.of(context).pop();
+                                });
+                              },
+                            );
+                          }),
+                    ],
+                  )),
+            )
+          : null,
+      body: bodyUI(),
     );
   }
-}
 
-class HomePageScreen extends StatefulWidget {
-  @override
-  _HomePageScreenState createState() => _HomePageScreenState();
-}
-
-class _HomePageScreenState extends State<HomePageScreen> {
-  bool menu1 = true;
-  bool menu2 = false;
-  bool menu3 = false;
-  bool menu4 = false;
-  Widget widgetbody = PageHome();
-  int menuClickPosition = 1;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget bodyUI() {
     return Stack(
       alignment: Alignment.center,
       children: <Widget>[
@@ -78,100 +127,41 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   0.0),
               child: Image.asset(
                 ConstUtils().stringUtils.imgIcon,
-                width: ResponsiveLayout.isSmallScreen(context) ? 26 : 40,
-                height: ResponsiveLayout.isSmallScreen(context) ? 26 : 40,
+                width: ResponsiveLayout.isSmallScreen(context) ? 0 : 40,
+                height: ResponsiveLayout.isSmallScreen(context) ? 0 : 40,
               ),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(390)),
                   color: ConstUtils().colorUtils.blackCircal)),
         ),
-        Align(
-          alignment: Alignment.topCenter,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Container(
-              margin: EdgeInsets.only(
-                  top: ResponsiveLayout.isSmallScreen(context) ? 20 : 60,
-                  left: ResponsiveLayout.isSmallScreen(context) ? 40 : 00),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        menu1 = true;
-                        menu2 = false;
-                        menu3 = false;
-                        menu4 = false;
-                        menuClickPosition = 1;
-                      });
-                    },
-                    child: ConstUtils().widgetUtils.menuText(
-                        ConstUtils().stringUtils.menuHome,
-                        getMenuColor(menu1),
-                        context),
-                  ),
-                  ConstUtils().widgetUtils.spaceHorizontal(
-                      ResponsiveLayout.isSmallScreen(context)
-                          ? menuSpacingSmall
-                          : menuSpacing),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        menu1 = false;
-                        menu2 = true;
-                        menu3 = false;
-                        menu4 = false;
-                        menuClickPosition = 2;
-                      });
-                    },
-                    child: ConstUtils().widgetUtils.menuText(
-                        ConstUtils().stringUtils.menuAbout,
-                        getMenuColor(menu2),
-                        context),
-                  ),
-                  ConstUtils().widgetUtils.spaceHorizontal(
-                      ResponsiveLayout.isSmallScreen(context)
-                          ? menuSpacingSmall
-                          : menuSpacing),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        menu1 = false;
-                        menu2 = false;
-                        menu3 = true;
-                        menu4 = false;
-                        menuClickPosition = 3;
-                      });
-                    },
-                    child: ConstUtils().widgetUtils.menuText(
-                        ConstUtils().stringUtils.menuService,
-                        getMenuColor(menu3),
-                        context),
-                  ),
-                  ConstUtils().widgetUtils.spaceHorizontal(
-                      ResponsiveLayout.isSmallScreen(context)
-                          ? menuSpacingSmall
-                          : menuSpacing),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        menu1 = false;
-                        menu2 = false;
-                        menu3 = false;
-                        menu4 = true;
-                        menuClickPosition = 4;
-                      });
-                    },
-                    child: ConstUtils().widgetUtils.menuText(
-                        ConstUtils().stringUtils.menuContact,
-                        getMenuColor(menu4),
-                        context),
-                  ),
-                ],
-              ),
-            ),
-          ),
+        Visibility(
+          visible: ResponsiveLayout.isSmallScreen(context) ? false : true,
+          child: Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                padding: EdgeInsets.only(top: 20),
+                height: 80,
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: menuList.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        splashColor: Colors.yellow,
+                        child: Padding(
+                          padding: const EdgeInsets.all(14),
+                          child: ConstUtils()
+                              .widgetUtils
+                              .menuText(menuList[index], Colors.white, context),
+                        ),
+                        onTap: () {
+                          setState(() {
+                            clickPosition = index;
+                          });
+                        },
+                      );
+                    }),
+              )),
         ),
 
         Align(
@@ -180,7 +170,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               : Alignment.topRight,
           child: Visibility(
             visible: ResponsiveLayout.isSmallScreen(context)
-                ? menuClickPosition != 1 ? false : true
+                ? clickPosition != 0 ? false : true
                 : true,
             child: Container(
               margin: EdgeInsets.only(
@@ -205,8 +195,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 left: ResponsiveLayout.isSmallScreen(context) ? 0 : 250,
                 top: ResponsiveLayout.isSmallScreen(context) ? 100 : 160),
             child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: bodyPage(menuClickPosition)),
+                scrollDirection: Axis.vertical, child: bodyPage(clickPosition)),
           ),
         )
         //
@@ -215,25 +204,18 @@ class _HomePageScreenState extends State<HomePageScreen> {
   }
 
   Widget bodyPage(int clickPosition) {
-    if (clickPosition == 1) {
-      widgetbody = PageHome();
-    } else if (clickPosition == 2) {
-      widgetbody = PageAbout();
-    } else if (clickPosition == 3) {
-      widgetbody = PageService();
-    } else if (clickPosition == 4) {
-      widgetbody = PageContact();
-    }
-    return widgetbody;
-  }
+    setState(() {
+      if (clickPosition == 0) {
+        widgetbody = PageHome();
+      } else if (clickPosition == 1) {
+        widgetbody = PageAbout();
+      } else if (clickPosition == 2) {
+        widgetbody = PageService();
+      } else if (clickPosition == 3) {
+        widgetbody = PageContact();
+      }
+    });
 
-  Color getMenuColor(bool isClicked) {
-    Color clickColor;
-    if (isClicked) {
-      clickColor = Colors.yellow;
-    } else {
-      clickColor = Colors.white;
-    }
-    return clickColor;
+    return widgetbody;
   }
 }
