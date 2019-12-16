@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PageHome extends StatelessWidget {
+  double iconSize=24;
+  double horizontalSpace=30;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,9 +53,10 @@ class PageHome extends StatelessWidget {
                 child: Icon(
                   FontAwesomeIcons.github,
                   color: Colors.white,
+                  size: iconSize,
                 ),
               ),
-              ConstUtils().widgetUtils.spaceHorizontal(40),
+              ConstUtils().widgetUtils.spaceHorizontal(horizontalSpace),
               InkWell(
                 onTap: () {
                   _launchURL(ConstUtils().stringUtils.linkLinkedIn);
@@ -60,9 +64,10 @@ class PageHome extends StatelessWidget {
                 child: Icon(
                   FontAwesomeIcons.linkedin,
                   color: Colors.white,
+                  size: iconSize,
                 ),
               ),
-              ConstUtils().widgetUtils.spaceHorizontal(40),
+              ConstUtils().widgetUtils.spaceHorizontal(horizontalSpace),
               InkWell(
                 onTap: () {
                   _launchURL(ConstUtils().stringUtils.linkFacebook);
@@ -70,9 +75,10 @@ class PageHome extends StatelessWidget {
                 child: Icon(
                   FontAwesomeIcons.facebook,
                   color: Colors.white,
+                  size: iconSize,
                 ),
               ),
-              ConstUtils().widgetUtils.spaceHorizontal(40),
+              ConstUtils().widgetUtils.spaceHorizontal(horizontalSpace),
               InkWell(
                 onTap: () {
                   _launchURL(ConstUtils().stringUtils.linkTwitter);
@@ -80,9 +86,10 @@ class PageHome extends StatelessWidget {
                 child: Icon(
                   FontAwesomeIcons.twitterSquare,
                   color: Colors.white,
+                  size: iconSize,
                 ),
               ),
-              ConstUtils().widgetUtils.spaceHorizontal(40),
+              ConstUtils().widgetUtils.spaceHorizontal(horizontalSpace),
               InkWell(
                 onTap: () {
                   _launchURL("contact@technoprashant.me");
@@ -90,7 +97,15 @@ class PageHome extends StatelessWidget {
                 child: Icon(
                   Icons.mail,
                   color: Colors.white,
+                  size: iconSize,
                 ),
+              ),
+              ConstUtils().widgetUtils.spaceHorizontal(horizontalSpace),
+              InkWell(
+                onTap: () {
+                  _launchURL("https://pub.dev/packages?q=publisher%3Atechnoprashant.me");
+                },
+                child: Image.asset(ConstUtils().stringUtils.ic_dart,height: iconSize,width: iconSize,)
               ),
             ],
           )
