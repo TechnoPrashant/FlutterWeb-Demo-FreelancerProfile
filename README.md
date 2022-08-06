@@ -7,7 +7,7 @@
 - Responsive UI
 
 # Video
-- <a href="https://youtu.be/uFMOtZSV26o">Watch Video</a>
+- <a href="https://www.youtube.com/channel/UCOZtX6OjzrdgX6v9QV76slg">Youtube Channel</a>
 
 # LIVE Demo
 - <a href="http://technoprashant.me/#/">Techno Prashant</a>
